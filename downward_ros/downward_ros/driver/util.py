@@ -2,12 +2,13 @@ import os
 from pathlib import Path
 
 from . import returncodes
+from ament_index_python.packages import get_package_share_directory
 
 
 DRIVER_DIR = Path(__file__).parent.resolve()
 REPO_ROOT_DIR = DRIVER_DIR.parent
-BUILDS_DIR = REPO_ROOT_DIR / "builds"
-
+downward_ros_share_path = get_package_share_directory('downward_ros')
+BUILDS_DIR = Path(downward_ros_share_path) / "builds"
 
 def get_elapsed_time():
     """
